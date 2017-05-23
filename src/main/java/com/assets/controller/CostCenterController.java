@@ -87,7 +87,7 @@ public class CostCenterController extends BaseController{
             return error("服务器内部异常");
         }
     }
-
+//查询
     @GetMapping("/costCenter")
     public Result costCenterList(@RequestParam(value = "page", defaultValue = "1") Integer page,
                            @RequestParam(value = "size", defaultValue = "30") Integer size){

@@ -19,6 +19,7 @@ public class UnitService {
         return unitDao.save(unit);
     }
     //删除
+
     public void deleteUnit(Integer id){
         unitDao.delete(id);
     }

@@ -63,7 +63,7 @@ public class CompanyController extends BaseController{
         }
 
     }
-    //修改
+    //修改1
     @PutMapping("/updateCompany/{id}")
     public Result updateCompany(@PathVariable("id")String id,@RequestBody String requestBody){
         try {

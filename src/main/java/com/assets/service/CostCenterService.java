@@ -31,6 +31,7 @@ public class CostCenterService {
         return costCenterDao.findAll(pageable);
     }
     //查询单个
+
     public CostCenter findOne(Integer id){
         return costCenterDao.findOne(id);
     }
