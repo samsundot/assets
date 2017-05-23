@@ -67,7 +67,6 @@ public class UnitController extends BaseController{
             Unit unit = new Unit();
             unit.setId(Integer.valueOf(id));
             unit.setUnitName(unitName);
-            unit.setCreateTime(Const.TIMESTAMP);
             boolean b = unitService.updateUnit(unit);
             if(b){
                 return success("修改成功");

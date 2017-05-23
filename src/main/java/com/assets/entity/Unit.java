@@ -15,7 +15,6 @@ public class Unit {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String unitName; //单位名称
-    private Date createTime; //创建时间
 
     public Integer getId() {
         return id;
@@ -33,17 +32,10 @@ public class Unit {
         this.unitName = unitName;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 
     public Unit(String unitName,Date createTime){
         this.unitName=unitName;
-        this.createTime=createTime;
     }
     public Unit(){}
 }
