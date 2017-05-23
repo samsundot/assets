@@ -13,12 +13,58 @@ public class AssetType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column
     private String assetTypeName;//资产类别名称
-    @Column
     private Integer parentTypeId; //上级类别名称
-    @Column
     private String assetTypeLevel; //资产类别级别
-    @Column
+    private String description; //说明
     private Date createTime; //创建时间
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getAssetTypeName() {
+        return assetTypeName;
+    }
+
+    public void setAssetTypeName(String assetTypeName) {
+        this.assetTypeName = assetTypeName;
+    }
+
+    public Integer getParentTypeId() {
+        return parentTypeId;
+    }
+
+    public void setParentTypeId(Integer parentTypeId) {
+        this.parentTypeId = parentTypeId;
+    }
+
+    public String getAssetTypeLevel() {
+        return assetTypeLevel;
+    }
+
+    public void setAssetTypeLevel(String assetTypeLevel) {
+        this.assetTypeLevel = assetTypeLevel;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

@@ -14,7 +14,6 @@ public class Unit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String code; //序号
     private String unitName; //单位名称
     private Date createTime; //创建时间
 }
