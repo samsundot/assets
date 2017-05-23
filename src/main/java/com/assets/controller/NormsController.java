@@ -79,7 +79,7 @@
 //
 //
 //
-//            assetService.addAsset(asset);
+//            normsService.addNorms(asset);
 //            return success("添加成功");
 //        }catch (Exception e){
 //            logger.error("未知错误",e);
@@ -87,10 +87,10 @@
 //        }
 //    }
 //
-//    @DeleteMapping("/asset/{assetId}")
-//    public Result assetList(@PathVariable("assetId")String assetId){
+//    @DeleteMapping("/norms/{normsId}")
+//    public Result assetList(@PathVariable("normsId")String normsId){
 //        try {
-//            assetService.delAsset(Integer.valueOf(assetId));
+//            normsService.delNorms(Integer.valueOf(normsId));
 //            return success("删除成功");
 //        }catch (Exception e){
 //            e.printStackTrace();
@@ -100,8 +100,8 @@
 //
 //    }
 //
-//    @PutMapping("/asset/{assetId}")
-//    public Result updateAsset(@PathVariable("assetId")String assetId,@RequestBody String requestBody){
+//    @PutMapping("/norms/{normsId}")
+//    public Result updateAsset(@PathVariable("normsId")String normsId,@RequestBody String requestBody){
 //        try {
 //            JSONObject parse = JsonUtil.parse(requestBody);
 //            String assetTypeId = (String)JsonUtil.getObject(parse, "assetTypeId");
@@ -117,7 +117,7 @@
 //            Asset asset = new Asset();
 //            asset.setId(Integer.valueOf(assetId));
 //
-//            boolean b = assetService.updateAsset(asset);
+//            boolean b = normsService.updateAsset(asset);
 //            if(b){
 //                return success("修改成功");
 //            }
@@ -129,14 +129,14 @@
 //        }
 //    }
 //
-//    @GetMapping("/asset")
+//    @GetMapping("/norms")
 //    public Result assetList(@RequestParam(value = "page", defaultValue = "1") Integer page,
 //                                    @RequestParam(value = "size", defaultValue = "30") Integer size){
 //        try {
 //            Sort sort = new Sort(Sort.Direction.DESC, "id");
 //            Pageable pageable = new PageRequest(page-1, size, sort);
 //            //查询所有
-//            return success(assetService.findAll(pageable));
+//            return success(normsService.findAll(pageable));
 //        }catch (Exception e){
 //            logger.error("未知错误",e);
 //            return error("服务器内部异常");
@@ -144,10 +144,10 @@
 //
 //    }
 //
-//    @GetMapping("/asset/{assetId}")
-//    public Result asset(@PathVariable("assetId")String assetId){
+//    @GetMapping("/norms/{normsId}")
+//    public Result asset(@PathVariable("normsId")String normsId){
 //        try {
-//            return success(assetService.findOne(Integer.valueOf(assetId)));
+//            return success(normsService.findOne(Integer.valueOf(normsId)));
 //        }catch (Exception e){
 //            logger.error("未知错误",e);
 //            return error("服务器内部异常");
