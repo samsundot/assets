@@ -17,7 +17,7 @@ public class Procurement {
     private Date arrivalDate; //到货日期
     private String buyer;  //采购员
     private String accepter; //验收人
-    @ManyToOne(cascade = {CascadeType.ALL }, optional = false)//Cascade 级联操作
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.ALL }, optional = false)//Cascade 级联操作
     @JoinColumn(name = "supplierId")
     private Supplier supplier; //供应商标识
     private Date createTime;

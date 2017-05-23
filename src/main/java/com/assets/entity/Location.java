@@ -19,3 +19,4 @@ public class Location {
     private String locationLevel; //地址级别
     private Date createTime; //创建时间
 }
+//地点名称，说明，地点地址，建筑物，房间号，楼层，地点编码，经理，维护，父级地点

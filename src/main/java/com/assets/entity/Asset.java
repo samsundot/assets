@@ -29,22 +29,22 @@ public class Asset {
     private String spaId; // spa编号
     @Column
     private String thoseResponsible; //责任人
-    @ManyToOne(cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
     @JoinColumn(name = "normsId")
     private Norms norms;//规格型号
-    @ManyToOne(cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
     @JoinColumn(name = "assetTypeId")
     private  AssetType assetType;
-    @ManyToOne(cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
     @JoinColumn(name = "locationId")
     private Location location;
-    @ManyToOne(cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
     @JoinColumn(name = "costCenterId")
     private CostCenter costCenter;
-    @ManyToOne(cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
     @JoinColumn(name = "procurementId")
     private Procurement procurement;
-    @ManyToOne(cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.REFRESH }, optional = false)//Cascade 级联操作
     @JoinColumn(name = "financialId")
     private Financial financial;
     @Column
