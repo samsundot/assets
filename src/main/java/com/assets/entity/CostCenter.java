@@ -17,4 +17,44 @@ public class CostCenter {
     private String costCenterName; //成本中心名称
     private String costCenterDesc;  //成本中心描述
     private Date createTime; //创建时间
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCostCenterName() {
+        return costCenterName;
+    }
+
+    public void setCostCenterName(String costCenterName) {
+        this.costCenterName = costCenterName;
+    }
+
+    public String getCostCenterDesc() {
+        return costCenterDesc;
+    }
+
+    public void setCostCenterDesc(String costCenterDesc) {
+        this.costCenterDesc = costCenterDesc;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }
