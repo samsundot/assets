@@ -1,7 +1,6 @@
 package com.assets.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by hch on 2017/5/22.
@@ -21,7 +20,7 @@ public class Area {
     private String note;//备注
     private String annualBudget;//年度预算
     private String approvalLimits;//每个请求项的批准限制
-    private Date createTime;
+
 
     public Integer getId() {
         return id;
@@ -95,15 +94,9 @@ public class Area {
         this.approvalLimits = approvalLimits;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 
-    public Area(String area, String description, String departmentManager, String managerAlternate, String costCenterId, String note, String annualBudget, String approvalLimits, Date createTime) {
+    public Area(String area, String description, String departmentManager, String managerAlternate, String costCenterId, String note, String annualBudget, String approvalLimits) {
         this.area = area;
         this.description = description;
         this.departmentManager = departmentManager;
@@ -112,7 +105,7 @@ public class Area {
         this.note = note;
         this.annualBudget = annualBudget;
         this.approvalLimits = approvalLimits;
-        this.createTime = createTime;
+
     }
 
     public Area() {

@@ -1,7 +1,6 @@
 package com.assets.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.assets.core.constant.Const;
 import com.assets.core.controller.BaseController;
 import com.assets.core.util.JsonUtil;
 import com.assets.core.util.Result;
@@ -37,7 +36,7 @@ public class AreaController extends BaseController {
         String note= (String)JsonUtil.getObject(parse,"note");
         String annualBudget= (String)JsonUtil.getObject(parse,"annualBudget");
         String approvalLimits= (String)JsonUtil.getObject(parse,"approvalLimits");
-            Area area1=new Area(area,description,departmentManager,managerAlternate,costCenterId,note,annualBudget,approvalLimits,Const.TIMESTAMP);
+            Area area1=new Area(area,description,departmentManager,managerAlternate,costCenterId,note,annualBudget,approvalLimits);
             areaService.addArea(area1);
 
         return success("添加成功");
@@ -99,7 +98,7 @@ public class AreaController extends BaseController {
     public Result manufacturersList(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                     @RequestParam(value = "size", defaultValue = "30") Integer size){
         try {
-            Sort sort = new Sort(Sort.Direction.DESC, "time");
+            Sort sort = new Sort(Sort.Direction.DESC, "id");
             Pageable pageable = new PageRequest(page-1, size, sort);
             //查询所有
             return success(areaService.findAll(pageable));
