@@ -20,9 +20,8 @@ public class AssessGroup {
     @Column
     private String company; //公司
     @Column
-    private String subclass; //小类ß
-    @Column
-    private Date createTime; //创建时间
+    private String subclass; //小类
+
 
     public Integer getId() {
         return id;
@@ -64,11 +63,5 @@ public class AssessGroup {
         this.subclass = subclass;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 }

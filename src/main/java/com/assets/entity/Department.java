@@ -21,6 +21,5 @@ public class Department {
     private String note;//备注
     private String annualBudget;//年度预算
     private String approvalLimits;//每个请求项的批准限制
-    private Date createTime;
 }
 

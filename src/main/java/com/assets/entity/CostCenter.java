@@ -16,7 +16,6 @@ public class CostCenter {
     private String code;
     private String costCenterName; //成本中心名称
     private String costCenterDesc;  //成本中心描述
-    private Date createTime; //创建时间
 
     public Integer getId() {
         return id;
@@ -50,11 +49,5 @@ public class CostCenter {
         this.costCenterDesc = costCenterDesc;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 }

@@ -17,7 +17,6 @@ public class Company {
     private String description;//说明
     private String companyPresident;// 公司总裁
     private String node;//备注
-    private Date createTime;
 
     public Integer getId() {
         return id;
@@ -59,11 +58,5 @@ public class Company {
         this.node = node;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 }

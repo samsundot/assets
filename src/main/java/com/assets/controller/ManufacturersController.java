@@ -31,7 +31,7 @@ public class ManufacturersController extends BaseController{
             JSONObject parse = JsonUtil.parse(requestBody);
             String manufacturersName = (String)JsonUtil.getObject(parse, "manufacturersName");
             String description = (String)JsonUtil.getObject(parse, "description");
-            Manufacturers manufacturers = new Manufacturers(manufacturersName,description, Const.TIMESTAMP);
+            Manufacturers manufacturers = new Manufacturers(manufacturersName,description);
             manufacturersService.addManufacturers(manufacturers);
             return success("添加成功");
         }catch (Exception e){

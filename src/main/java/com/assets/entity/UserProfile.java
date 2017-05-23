@@ -28,7 +28,6 @@ public class UserProfile {
     private CostCenter costCenter;//成本中心标识
     private String manager;//经理
     private String note;//备注
-    private Date createTime;
 
     public Integer getId() {
         return id;
@@ -110,11 +109,4 @@ public class UserProfile {
         this.note = note;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 }

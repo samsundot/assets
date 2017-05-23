@@ -20,7 +20,6 @@ public class Procurement {
     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.ALL }, optional = false)//Cascade 级联操作
     @JoinColumn(name = "supplierId")
     private Supplier supplier; //供应商标识
-    private Date createTime;
 
     public Integer getId() {
         return id;
@@ -70,11 +69,5 @@ public class Procurement {
         this.supplier = supplier;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 }

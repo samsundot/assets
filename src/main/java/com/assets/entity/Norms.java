@@ -26,7 +26,6 @@ public class Norms {
     private String spacing; //间距
     private String cabinetType; // 机柜类型
     private String power; //功率
-    private Date createTime; //创建时间
 
     public Integer getId() {
         return id;
@@ -132,11 +131,4 @@ public class Norms {
         this.power = power;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 }

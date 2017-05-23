@@ -16,12 +16,10 @@ public class Manufacturers implements Serializable{ @Id
     private Integer id;
     private String manufacturersName;//制造商名称
     private String description;// 说明
-    private Date createTime;
     public Manufacturers(){}
-    public Manufacturers(String manufacturersName,String description,Date createTime){
+    public Manufacturers(String manufacturersName,String description){
         this.manufacturersName=manufacturersName;
         this.description=description;
-        this.createTime=createTime;
     }
     public Integer getId() {
         return id;

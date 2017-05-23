@@ -57,7 +57,6 @@ public class NormsController extends BaseController{
                 norms.setRom(rom);
                 norms.setSize(size);
                 norms.setSpacing(spacing);
-                norms.setCreateTime(Const.TIMESTAMP);
                 normsService.addNorms(norms);
             return success("添加成功");
         }catch (Exception e){
@@ -110,7 +109,6 @@ public class NormsController extends BaseController{
             norms.setRom(rom);
             norms.setSize(size);
             norms.setSpacing(spacing);
-            norms.setCreateTime(Const.TIMESTAMP);
 
             boolean b = normsService.updateNorms(norms);
             if(b){

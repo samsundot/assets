@@ -17,7 +17,6 @@ public class PurchasingGroup {
     private String buyer;  //采购员
     private String company; //公司
     private String subclass; //小类
-    private Date createTime; //创建时间
 
     public Integer getId() {
         return id;
@@ -51,11 +50,5 @@ public class PurchasingGroup {
         this.subclass = subclass;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 }

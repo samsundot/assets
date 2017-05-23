@@ -15,5 +15,4 @@ public class HouseStructure {
     private Integer id;
     private Integer serialNumber;//序号
     private String name;//结构名称
-    private Date createTime; //创建时间
 }

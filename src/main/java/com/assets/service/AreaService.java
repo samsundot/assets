@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class AreaService {
     @Autowired
     AreaDao areaDao;
+
     public Area addArea(Area area){
         return areaDao.save(area);
     }

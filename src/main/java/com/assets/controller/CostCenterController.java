@@ -42,7 +42,6 @@ public class CostCenterController extends BaseController{
             costCenter.setCostCenterName(costCenterName);
             costCenter.setCostCenterDesc(costCenterDesc);
             Date date = new Date();
-            costCenter.setCreateTime(date);
             costCenterService.addCostCenter(costCenter);
             return success("添加成功");
         }catch (Exception e){
