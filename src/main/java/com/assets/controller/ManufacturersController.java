@@ -79,7 +79,7 @@ public class ManufacturersController extends BaseController{
     public Result manufacturersList(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                     @RequestParam(value = "size", defaultValue = "30") Integer size){
         try {
-            Sort sort = new Sort(Sort.Direction.DESC, "time");
+            Sort sort = new Sort(Sort.Direction.DESC, "id");
             Pageable pageable = new PageRequest(page-1, size, sort);
             //查询所有
             return success(manufacturersService.findAll(pageable));

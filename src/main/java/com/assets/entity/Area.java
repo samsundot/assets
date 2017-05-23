@@ -1,14 +1,14 @@
 package com.assets.entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created by hch on 2017/5/22.
  */
 //区域
+@Entity
+@Table(name = "area")
 public class Area {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

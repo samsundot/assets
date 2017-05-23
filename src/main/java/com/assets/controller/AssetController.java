@@ -29,47 +29,53 @@ public class AssetController extends BaseController{
     @PostMapping("/asset")
     public Result addAsset(@RequestBody String requestBody){
         try {
-//            JSONObject parse = JsonUtil.parse(requestBody);
-//            String manufacturersName = (String)JsonUtil.getObject(parse, "manufacturersName");
-//            String description = (String)JsonUtil.getObject(parse, "description");
+            JSONObject parse = JsonUtil.parse(requestBody);
+            String assetTypeId = (String)JsonUtil.getObject(parse, "assetTypeId");
+            String costCenterId = (String) JsonUtil.getObject(parse, "costCenterId");
+            String financialId = (String) JsonUtil.getObject(parse, "financialId");
+            String locationId = (String) JsonUtil.getObject(parse, "locationId");
+            String normsId = (String) JsonUtil.getObject(parse, "normsId");
+            String procurementId = (String) JsonUtil.getObject(parse, "procurementId");
+            String spaId = (String) JsonUtil.getObject(parse, "spaId");
+            String assetId = (String)JsonUtil.getObject(parse, "assetId");
+            String assetDesc = (String)JsonUtil.getObject(parse, "assetDesc");
+            String assetName = (String)JsonUtil.getObject(parse, "assetName");
+
 
 
 
 
             AssetType assetType = new AssetType();
-            assetType.setId(1);
+            assetType.setId(Integer.valueOf(assetTypeId));
 
             CostCenter costCenter = new CostCenter();
-            costCenter.setId(1);
+            costCenter.setId(Integer.valueOf(costCenterId));
 
             Financial financial = new Financial();
-            financial.setId(1);
+            financial.setId(Integer.valueOf(financialId));
 
             Location location = new Location();
-//            location.
-//            asset.setLocation(location);
-//            asset.setProcurement();
-//            asset.setNorms();
+            location.setId(Integer.valueOf(locationId));
 
-
-
-
-
+            Norms norms = new Norms();
+            norms.setId(Integer.valueOf(normsId));
+            Procurement procurement = new Procurement();
+            procurement.setId(Integer.valueOf(procurementId));
 
 
             Asset asset = new Asset();
-//            asset.setAssetId();
-//            asset.setNorms();
-//            asset.setProcurement();
-//            asset.setLocation();
-//            asset.setFinancial();
-//            asset.setAssetType();
-//            asset.setCostCenter();
-//            asset.setAssetName();
-//            asset.setAssetDesc();
-//            asset.setCreateTime(Const.TIMESTAMP);
-//            asset.setSpaId();
-//            asset.setUpdateTime(Const.TIMESTAMP);
+            asset.setAssetId(assetId);
+            asset.setNorms(norms);
+            asset.setProcurement(procurement);
+            asset.setLocation(location);
+            asset.setFinancial(financial);
+            asset.setAssetType(assetType);
+            asset.setCostCenter(costCenter);
+            asset.setAssetName(assetName);
+            asset.setAssetDesc(assetDesc);
+            asset.setCreateTime(Const.TIMESTAMP);
+            asset.setSpaId(spaId);
+            asset.setUpdateTime(Const.TIMESTAMP);
 
 
 
@@ -98,8 +104,16 @@ public class AssetController extends BaseController{
     public Result updateAsset(@PathVariable("assetId")String assetId,@RequestBody String requestBody){
         try {
             JSONObject parse = JsonUtil.parse(requestBody);
-            String manufacturersName = (String)JsonUtil.getObject(parse, "manufacturersName");
-            String description = (String)JsonUtil.getObject(parse, "description");
+            String assetTypeId = (String)JsonUtil.getObject(parse, "assetTypeId");
+            String costCenterId = (String) JsonUtil.getObject(parse, "costCenterId");
+            String financialId = (String) JsonUtil.getObject(parse, "financialId");
+            String locationId = (String) JsonUtil.getObject(parse, "locationId");
+            String normsId = (String) JsonUtil.getObject(parse, "normsId");
+            String procurementId = (String) JsonUtil.getObject(parse, "procurementId");
+            String spaId = (String) JsonUtil.getObject(parse, "spaId");
+            String assetDesc = (String)JsonUtil.getObject(parse, "assetDesc");
+            String assetName = (String)JsonUtil.getObject(parse, "assetName");
+
             Asset asset = new Asset();
             asset.setId(Integer.valueOf(assetId));
 
