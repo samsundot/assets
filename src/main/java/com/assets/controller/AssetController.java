@@ -5,7 +5,8 @@ import com.assets.core.constant.Const;
 import com.assets.core.controller.BaseController;
 import com.assets.core.util.JsonUtil;
 import com.assets.core.util.Result;
-import com.assets.entity.Manufacturers;
+import com.assets.entity.*;
+import com.assets.service.AssetService;
 import com.assets.service.ManufacturersService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,20 +20,34 @@ import org.springframework.web.bind.annotation.*;
  * Created by hch on 2017/5/22.
  */
 @RestController
-public class ManufacturersController extends BaseController{
-    private static final Logger logger = LoggerFactory.getLogger(ManufacturersController.class);
+public class AssetController extends BaseController{
+    private static final Logger logger = LoggerFactory.getLogger(AssetController.class);
     @Autowired
-    ManufacturersService manufacturersService;
+    AssetService assetService;
 
 
-    @PostMapping("/manufacturers")
-    public Result addManufacturers(@RequestBody String requestBody){
+    @PostMapping("/asset")
+    public Result addAsset(@RequestBody String requestBody){
         try {
-            JSONObject parse = JsonUtil.parse(requestBody);
-            String manufacturersName = (String)JsonUtil.getObject(parse, "manufacturersName");
-            String description = (String)JsonUtil.getObject(parse, "description");
-            Manufacturers manufacturers = new Manufacturers(manufacturersName,description, Const.TIMESTAMP);
-            manufacturersService.addManufacturers(manufacturers);
+//            JSONObject parse = JsonUtil.parse(requestBody);
+//            String manufacturersName = (String)JsonUtil.getObject(parse, "manufacturersName");
+//            String description = (String)JsonUtil.getObject(parse, "description");
+            Asset asset = new Asset();
+            AssetType assetType = new AssetType();
+            assetType.setId(1);
+            asset.setAssetType(assetType);
+//            CostCenter costCenter = new CostCenter();
+//            costCenter.setId(1);
+//            asset.setCostCenter(costCenter);
+//            Financial financial = new Financial();
+//            financial.setId(1);
+//            asset.setFinancial(financial);
+//            Location location = new Location();
+//            location.
+//            asset.setLocation(location);
+//            asset.setProcurement();
+//            asset.setNorms();
+            assetService.addAsset(asset);
             return success("添加成功");
         }catch (Exception e){
             logger.error("未知错误",e);
@@ -40,10 +55,10 @@ public class ManufacturersController extends BaseController{
         }
     }
 
-    @DeleteMapping("/manufacturers/{manufacturersId}")
-    public Result manufacturersList(@PathVariable("manufacturersId")String manufacturersId){
+    @DeleteMapping("/asset/{assetId}")
+    public Result assetList(@PathVariable("assetId")String assetId){
         try {
-            manufacturersService.delManufacturers(Integer.valueOf(manufacturersId));
+            assetService.delAsset(Integer.valueOf(assetId));
             return success("删除成功");
         }catch (Exception e){
             e.printStackTrace();
@@ -53,17 +68,16 @@ public class ManufacturersController extends BaseController{
 
     }
 
-    @PutMapping("/manufacturers/{manufacturersId}")
-    public Result updateManufacturers(@PathVariable("manufacturersId")String manufacturersId,@RequestBody String requestBody){
+    @PutMapping("/asset/{assetId}")
+    public Result updateAsset(@PathVariable("assetId")String assetId,@RequestBody String requestBody){
         try {
             JSONObject parse = JsonUtil.parse(requestBody);
             String manufacturersName = (String)JsonUtil.getObject(parse, "manufacturersName");
             String description = (String)JsonUtil.getObject(parse, "description");
-            Manufacturers manufacturers = new Manufacturers();
-            manufacturers.setId(Integer.valueOf(manufacturersId));
-            manufacturers.setDescription(description);
-            manufacturers.setManufacturersName(manufacturersName);
-            boolean b = manufacturersService.updateManufacturers(manufacturers);
+            Asset asset = new Asset();
+            asset.setId(Integer.valueOf(assetId));
+
+            boolean b = assetService.updateAsset(asset);
             if(b){
                 return success("修改成功");
             }
@@ -75,14 +89,14 @@ public class ManufacturersController extends BaseController{
         }
     }
 
-    @GetMapping("/manufacturers")
-    public Result manufacturersList(@RequestParam(value = "page", defaultValue = "1") Integer page,
+    @GetMapping("/asset")
+    public Result assetList(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                     @RequestParam(value = "size", defaultValue = "30") Integer size){
         try {
-            Sort sort = new Sort(Sort.Direction.DESC, "time");
+            Sort sort = new Sort(Sort.Direction.DESC, "id");
             Pageable pageable = new PageRequest(page-1, size, sort);
             //查询所有
-            return success(manufacturersService.findAll(pageable));
+            return success(assetService.findAll(pageable));
         }catch (Exception e){
             logger.error("未知错误",e);
             return error("服务器内部异常");
@@ -90,10 +104,10 @@ public class ManufacturersController extends BaseController{
 
     }
 
-    @GetMapping("/manufacturers/{manufacturersId}")
-    public Result manufacturers(@PathVariable("manufacturersId")String manufacturersId){
+    @GetMapping("/asset/{assetId}")
+    public Result asset(@PathVariable("assetId")String assetId){
         try {
-            return success(manufacturersService.findOne(Integer.valueOf(manufacturersId)));
+            return success(assetService.findOne(Integer.valueOf(assetId)));
         }catch (Exception e){
             logger.error("未知错误",e);
             return error("服务器内部异常");

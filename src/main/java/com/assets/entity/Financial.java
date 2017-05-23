@@ -20,4 +20,68 @@ public class Financial {
     private Date deactivationDate;   //资产不活动日期
     private Date planRetirementDate; //计划报废日期
     private Date shutdownDate; //停用日期
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Long getOriginalCost() {
+        return originalCost;
+    }
+
+    public void setOriginalCost(Long originalCost) {
+        this.originalCost = originalCost;
+    }
+
+    public Long getNetWorth() {
+        return netWorth;
+    }
+
+    public void setNetWorth(Long netWorth) {
+        this.netWorth = netWorth;
+    }
+
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
+
+    public Date getCapitalizationDate() {
+        return capitalizationDate;
+    }
+
+    public void setCapitalizationDate(Date capitalizationDate) {
+        this.capitalizationDate = capitalizationDate;
+    }
+
+    public Date getDeactivationDate() {
+        return deactivationDate;
+    }
+
+    public void setDeactivationDate(Date deactivationDate) {
+        this.deactivationDate = deactivationDate;
+    }
+
+    public Date getPlanRetirementDate() {
+        return planRetirementDate;
+    }
+
+    public void setPlanRetirementDate(Date planRetirementDate) {
+        this.planRetirementDate = planRetirementDate;
+    }
+
+    public Date getShutdownDate() {
+        return shutdownDate;
+    }
+
+    public void setShutdownDate(Date shutdownDate) {
+        this.shutdownDate = shutdownDate;
+    }
 }
