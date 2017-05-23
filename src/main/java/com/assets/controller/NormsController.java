@@ -1,159 +1,154 @@
-//package com.assets.controller;
-//
-//import com.alibaba.fastjson.JSONObject;
-//import com.assets.core.constant.Const;
-//import com.assets.core.controller.BaseController;
-//import com.assets.core.util.JsonUtil;
-//import com.assets.core.util.Result;
-//import com.assets.entity.*;
-//import com.assets.service.AssetService;
-//import com.assets.service.NormsService;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.domain.PageRequest;
-//import org.springframework.data.domain.Pageable;
-//import org.springframework.data.domain.Sort;
-//import org.springframework.web.bind.annotation.*;
-//
-///**
-// * Created by hch on 2017/5/22.
-// */
-//@RestController
-//public class NormsController extends BaseController{
-//    private static final Logger logger = LoggerFactory.getLogger(NormsController.class);
-//    @Autowired
-//    NormsService normsService;
-//
-//
-//    @PostMapping("/norms")
-//    public Result addAsset(@RequestBody String requestBody){
-//        try {
-//            JSONObject parse = JsonUtil.parse(requestBody);
-//            String assetTypeId = (String)JsonUtil.getObject(parse, "assetTypeId");
-//            String costCenterId = (String) JsonUtil.getObject(parse, "costCenterId");
-//            String financialId = (String) JsonUtil.getObject(parse, "financialId");
-//            String locationId = (String) JsonUtil.getObject(parse, "locationId");
-//            String normsId = (String) JsonUtil.getObject(parse, "normsId");
-//            String procurementId = (String) JsonUtil.getObject(parse, "procurementId");
-//            String spaId = (String) JsonUtil.getObject(parse, "spaId");
-//            String assetId = (String)JsonUtil.getObject(parse, "assetId");
-//            String assetDesc = (String)JsonUtil.getObject(parse, "assetDesc");
-//            String assetName = (String)JsonUtil.getObject(parse, "assetName");
-//
-//
-//
-//
-//
-//            AssetType assetType = new AssetType();
-//            assetType.setId(Integer.valueOf(assetTypeId));
-//
-//            CostCenter costCenter = new CostCenter();
-//            costCenter.setId(Integer.valueOf(costCenterId));
-//
-//            Financial financial = new Financial();
-//            financial.setId(Integer.valueOf(financialId));
-//
-//            Location location = new Location();
-//            location.setId(Integer.valueOf(locationId));
-//
-//            Norms norms = new Norms();
-//            norms.setId(Integer.valueOf(normsId));
-//            Procurement procurement = new Procurement();
-//            procurement.setId(Integer.valueOf(procurementId));
-//
-//
-//            Asset asset = new Asset();
-//            asset.setAssetId(assetId);
-//            asset.setNorms(norms);
-//            asset.setProcurement(procurement);
-//            asset.setLocation(location);
-//            asset.setFinancial(financial);
-//            asset.setAssetType(assetType);
-//            asset.setCostCenter(costCenter);
-//            asset.setAssetName(assetName);
-//            asset.setAssetDesc(assetDesc);
-//            asset.setCreateTime(Const.TIMESTAMP);
-//            asset.setSpaId(spaId);
-//            asset.setUpdateTime(Const.TIMESTAMP);
-//
-//
-//
-//            normsService.addNorms(asset);
-//            return success("添加成功");
-//        }catch (Exception e){
-//            logger.error("未知错误",e);
-//            return error("服务器内部异常");
-//        }
-//    }
-//
-//    @DeleteMapping("/norms/{normsId}")
-//    public Result assetList(@PathVariable("normsId")String normsId){
-//        try {
-//            normsService.delNorms(Integer.valueOf(normsId));
-//            return success("删除成功");
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            logger.error("未知错误",e);
-//            return error("服务器内部异常");
-//        }
-//
-//    }
-//
-//    @PutMapping("/norms/{normsId}")
-//    public Result updateAsset(@PathVariable("normsId")String normsId,@RequestBody String requestBody){
-//        try {
-//            JSONObject parse = JsonUtil.parse(requestBody);
-//            String assetTypeId = (String)JsonUtil.getObject(parse, "assetTypeId");
-//            String costCenterId = (String) JsonUtil.getObject(parse, "costCenterId");
-//            String financialId = (String) JsonUtil.getObject(parse, "financialId");
-//            String locationId = (String) JsonUtil.getObject(parse, "locationId");
-//            String normsId = (String) JsonUtil.getObject(parse, "normsId");
-//            String procurementId = (String) JsonUtil.getObject(parse, "procurementId");
-//            String spaId = (String) JsonUtil.getObject(parse, "spaId");
-//            String assetDesc = (String)JsonUtil.getObject(parse, "assetDesc");
-//            String assetName = (String)JsonUtil.getObject(parse, "assetName");
-//
-//            Asset asset = new Asset();
-//            asset.setId(Integer.valueOf(assetId));
-//
-//            boolean b = normsService.updateAsset(asset);
-//            if(b){
-//                return success("修改成功");
-//            }
-//            return error("修改失败");
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            logger.error("未知错误",e);
-//            return error("服务器内部异常");
-//        }
-//    }
-//
-//    @GetMapping("/norms")
-//    public Result assetList(@RequestParam(value = "page", defaultValue = "1") Integer page,
-//                                    @RequestParam(value = "size", defaultValue = "30") Integer size){
-//        try {
-//            Sort sort = new Sort(Sort.Direction.DESC, "id");
-//            Pageable pageable = new PageRequest(page-1, size, sort);
-//            //查询所有
-//            return success(normsService.findAll(pageable));
-//        }catch (Exception e){
-//            logger.error("未知错误",e);
-//            return error("服务器内部异常");
-//        }
-//
-//    }
-//
-//    @GetMapping("/norms/{normsId}")
-//    public Result asset(@PathVariable("normsId")String normsId){
-//        try {
-//            return success(normsService.findOne(Integer.valueOf(normsId)));
-//        }catch (Exception e){
-//            logger.error("未知错误",e);
-//            return error("服务器内部异常");
-//        }
-//
-//    }
-//
-//
-//}
+package com.assets.controller;
+
+import com.alibaba.fastjson.JSONObject;
+import com.assets.core.constant.Const;
+import com.assets.core.controller.BaseController;
+import com.assets.core.util.JsonUtil;
+import com.assets.core.util.Result;
+import com.assets.entity.*;
+import com.assets.service.AssetService;
+import com.assets.service.NormsService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * Created by hch on 2017/5/22.
+ */
+@RestController
+public class NormsController extends BaseController{
+    private static final Logger logger = LoggerFactory.getLogger(NormsController.class);
+    @Autowired
+    NormsService normsService;
+
+
+    @PostMapping("/norms")
+    public Result addNorms(@RequestBody String requestBody){
+        try {
+            JSONObject parse = JsonUtil.parse(requestBody);
+            String norm = (String)JsonUtil.getObject(parse, "norm");
+            String maintenancePeriod = (String) JsonUtil.getObject(parse, "maintenancePeriod");
+            String color = (String) JsonUtil.getObject(parse, "color");
+            String memory = (String) JsonUtil.getObject(parse, "memory");
+            String cpu = (String) JsonUtil.getObject(parse, "cpu");
+            String hardDisk = (String) JsonUtil.getObject(parse, "hardDisk");
+            String size = (String) JsonUtil.getObject(parse, "size");
+            String rom = (String)JsonUtil.getObject(parse, "rom");
+            String note = (String)JsonUtil.getObject(parse, "note");
+            String spacing = (String)JsonUtil.getObject(parse, "spacing");
+            String cabinetType = (String)JsonUtil.getObject(parse, "cabinetType");
+            String power = (String)JsonUtil.getObject(parse, "power");
+
+
+                Norms norms = new Norms();
+                norms.setNorms(norm);
+                norms.setCabinetType(cabinetType);
+                norms.setColor(color);
+                norms.setCpu(cpu);
+                norms.setHardDisk(hardDisk);
+                norms.setMaintenancePeriod(maintenancePeriod);
+                norms.setMemory(memory);
+                norms.setNote(note);
+                norms.setPower(power);
+                norms.setRom(rom);
+                norms.setSize(size);
+                norms.setSpacing(spacing);
+                norms.setCreateTime(Const.TIMESTAMP);
+                normsService.addNorms(norms);
+            return success("添加成功");
+        }catch (Exception e){
+            logger.error("未知错误",e);
+            return error("服务器内部异常");
+        }
+    }
+
+    @DeleteMapping("/norms/{normsId}")
+    public Result assetNorms(@PathVariable("normsId")String normsId){
+        try {
+            normsService.delNorms(Integer.valueOf(normsId));
+            return success("删除成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            logger.error("未知错误",e);
+            return error("服务器内部异常");
+        }
+
+    }
+
+    @PutMapping("/norms/{normsId}")
+    public Result updateNorms(@PathVariable("normsId")String normsId,@RequestBody String requestBody){
+        try {
+            JSONObject parse = JsonUtil.parse(requestBody);
+            String norm = (String)JsonUtil.getObject(parse, "norm");
+            String maintenancePeriod = (String) JsonUtil.getObject(parse, "maintenancePeriod");
+            String color = (String) JsonUtil.getObject(parse, "color");
+            String memory = (String) JsonUtil.getObject(parse, "memory");
+            String cpu = (String) JsonUtil.getObject(parse, "cpu");
+            String hardDisk = (String) JsonUtil.getObject(parse, "hardDisk");
+            String size = (String) JsonUtil.getObject(parse, "size");
+            String rom = (String)JsonUtil.getObject(parse, "rom");
+            String note = (String)JsonUtil.getObject(parse, "note");
+            String spacing = (String)JsonUtil.getObject(parse, "spacing");
+            String cabinetType = (String)JsonUtil.getObject(parse, "cabinetType");
+            String power = (String)JsonUtil.getObject(parse, "power");
+
+
+            Norms norms = new Norms();
+            norms.setNorms(norm);
+            norms.setCabinetType(cabinetType);
+            norms.setColor(color);
+            norms.setCpu(cpu);
+            norms.setHardDisk(hardDisk);
+            norms.setMaintenancePeriod(maintenancePeriod);
+            norms.setMemory(memory);
+            norms.setNote(note);
+            norms.setPower(power);
+            norms.setRom(rom);
+            norms.setSize(size);
+            norms.setSpacing(spacing);
+            norms.setCreateTime(Const.TIMESTAMP);
+
+            boolean b = normsService.updateNorms(norms);
+            if(b){
+                return success("修改成功");
+            }
+            return error("修改失败");
+        }catch (Exception e){
+            e.printStackTrace();
+            logger.error("未知错误",e);
+            return error("服务器内部异常");
+        }
+    }
+
+    @GetMapping("/norms")
+    public Result normsList(@RequestParam(value = "page", defaultValue = "1") Integer page,
+                                    @RequestParam(value = "size", defaultValue = "30") Integer size){
+        try {
+            Sort sort = new Sort(Sort.Direction.DESC, "id");
+            Pageable pageable = new PageRequest(page-1, size, sort);
+            //查询所有
+            return success(normsService.findAll(pageable));
+        }catch (Exception e){
+            logger.error("未知错误",e);
+            return error("服务器内部异常");
+        }
+
+    }
+
+    @GetMapping("/norms/{normsId}")
+    public Result norms(@PathVariable("normsId")String normsId){
+        try {
+            return success(normsService.findOne(Integer.valueOf(normsId)));
+        }catch (Exception e){
+            logger.error("未知错误",e);
+            return error("服务器内部异常");
+        }
+
+    }
+
+
+}
