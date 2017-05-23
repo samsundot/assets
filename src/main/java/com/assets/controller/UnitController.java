@@ -5,9 +5,10 @@ import com.assets.core.constant.Const;
 import com.assets.core.controller.BaseController;
 import com.assets.core.util.JsonUtil;
 import com.assets.core.util.Result;
-import com.assets.entity.*;
-import com.assets.service.AssetService;
-import com.assets.service.JobLevelService;
+import com.assets.entity.Manufacturers;
+import com.assets.entity.Unit;
+import com.assets.service.ManufacturersService;
+import com.assets.service.UnitService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,37 +17,39 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
- * Created by hch on 2017/5/22.
+ * Created by Administrator on 2017/5/23 0023.
  */
 @RestController
-public class JobLevelController extends BaseController{
-    private static final Logger logger = LoggerFactory.getLogger(JobLevelController.class);
+public class UnitController extends BaseController{
+    private static final Logger logger = LoggerFactory.getLogger(UnitController.class);
     @Autowired
-    JobLevelService jobLevelService;
+    UnitService unitService;
 
-
-    @PostMapping("/jobLevel")
-    public Result addJobLevel(@RequestBody String requestBody){
+    //新增
+    @PostMapping("/addUnit")
+    public Result addUnit(@RequestBody String requestBody){
         try {
             JSONObject parse = JsonUtil.parse(requestBody);
-            String description = (String)JsonUtil.getObject(parse, "description");
-            String jobName = (String) JsonUtil.getObject(parse, "jobName");
-
-            JobLevel jobLevel = new JobLevel(jobName,description);
-            jobLevelService.addJobLevel(jobLevel);
-
+            String unitName = (String)JsonUtil.getObject(parse, "unitName");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            Date date = new Date();
+            Unit unit = new Unit(unitName,date);
+            unitService.addUnit(unit);
             return success("添加成功");
         }catch (Exception e){
             logger.error("未知错误",e);
             return error("服务器内部异常");
         }
     }
-
-    @DeleteMapping("/jobLevel/{jobLevelId}")
-    public Result assetList(@PathVariable("jobLevelId")String jobLevelId){
+    //删除
+    @DeleteMapping("/deleteUnit/{id}")
+    public Result deleteUnit(@PathVariable("id")String id){
         try {
-            jobLevelService.delJobLevel(Integer.valueOf(jobLevelId));
+            unitService.deleteUnit(Integer.valueOf(id));
             return success("删除成功");
         }catch (Exception e){
             e.printStackTrace();
@@ -55,19 +58,17 @@ public class JobLevelController extends BaseController{
         }
 
     }
-
-    @PutMapping("/jobLevel/{jobLevelId}")
-    public Result updateAsset(@PathVariable("jobLevelId")String jobLevelId,@RequestBody String requestBody){
+    //修改
+    @PutMapping("/updateUnit/{id}")
+    public Result updateUnit(@PathVariable("id")String id,@RequestBody String requestBody){
         try {
             JSONObject parse = JsonUtil.parse(requestBody);
-            String description = (String)JsonUtil.getObject(parse, "description");
-            String jobName = (String) JsonUtil.getObject(parse, "jobName");
-            JobLevel jobLevel = new JobLevel();
-            jobLevel.setDescription(description);
-            jobLevel.setJobName(jobName);
-            jobLevel.setId(Integer.valueOf(jobLevelId));
-
-            boolean b = jobLevelService.updateJobLevel(jobLevel);
+            String unitName = (String)JsonUtil.getObject(parse, "unitName");
+            Unit unit = new Unit();
+            unit.setId(Integer.valueOf(id));
+            unit.setUnitName(unitName);
+            unit.setCreateTime(Const.TIMESTAMP);
+            boolean b = unitService.updateUnit(unit);
             if(b){
                 return success("修改成功");
             }
@@ -79,14 +80,14 @@ public class JobLevelController extends BaseController{
         }
     }
 
-    @GetMapping("/jobLevel")
-    public Result jobLevelList(@RequestParam(value = "page", defaultValue = "1") Integer page,
+    @GetMapping("/unit")
+    public Result unitList(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                     @RequestParam(value = "size", defaultValue = "30") Integer size){
         try {
             Sort sort = new Sort(Sort.Direction.DESC, "id");
             Pageable pageable = new PageRequest(page-1, size, sort);
             //查询所有
-            return success(jobLevelService.findAll(pageable));
+            return success(unitService.findAll(pageable));
         }catch (Exception e){
             logger.error("未知错误",e);
             return error("服务器内部异常");
@@ -94,16 +95,14 @@ public class JobLevelController extends BaseController{
 
     }
 
-    @GetMapping("/jobLevel/{jobLevelId}")
-    public Result jobLevel(@PathVariable("jobLevelId")String jobLevelId){
+    @GetMapping("/unitById/{id}")
+    public Result unitById(@PathVariable("id")String id) {
         try {
-            return success(jobLevelService.findOne(Integer.valueOf(jobLevelId)));
-        }catch (Exception e){
-            logger.error("未知错误",e);
+            return success(unitService.findOne(Integer.valueOf(id)));
+        } catch (Exception e) {
+            logger.error("未知错误", e);
             return error("服务器内部异常");
         }
 
     }
-
-
 }
