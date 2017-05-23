@@ -32,21 +32,47 @@ public class AssetController extends BaseController{
 //            JSONObject parse = JsonUtil.parse(requestBody);
 //            String manufacturersName = (String)JsonUtil.getObject(parse, "manufacturersName");
 //            String description = (String)JsonUtil.getObject(parse, "description");
-            Asset asset = new Asset();
+
+
+
+
             AssetType assetType = new AssetType();
             assetType.setId(1);
-            asset.setAssetType(assetType);
-//            CostCenter costCenter = new CostCenter();
-//            costCenter.setId(1);
-//            asset.setCostCenter(costCenter);
-//            Financial financial = new Financial();
-//            financial.setId(1);
-//            asset.setFinancial(financial);
-//            Location location = new Location();
+
+            CostCenter costCenter = new CostCenter();
+            costCenter.setId(1);
+
+            Financial financial = new Financial();
+            financial.setId(1);
+
+            Location location = new Location();
 //            location.
 //            asset.setLocation(location);
 //            asset.setProcurement();
 //            asset.setNorms();
+
+
+
+
+
+
+
+            Asset asset = new Asset();
+//            asset.setAssetId();
+//            asset.setNorms();
+//            asset.setProcurement();
+//            asset.setLocation();
+//            asset.setFinancial();
+//            asset.setAssetType();
+//            asset.setCostCenter();
+//            asset.setAssetName();
+//            asset.setAssetDesc();
+//            asset.setCreateTime(Const.TIMESTAMP);
+//            asset.setSpaId();
+//            asset.setUpdateTime(Const.TIMESTAMP);
+
+
+
             assetService.addAsset(asset);
             return success("添加成功");
         }catch (Exception e){

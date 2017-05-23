@@ -18,5 +18,53 @@ public class Location {
     private Integer parentLocationId; //上级地址标识
     private String locationLevel; //地址级别
     private Date createTime; //创建时间
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
+    public String getDetailedAddress() {
+        return detailedAddress;
+    }
+
+    public void setDetailedAddress(String detailedAddress) {
+        this.detailedAddress = detailedAddress;
+    }
+
+    public Integer getParentLocationId() {
+        return parentLocationId;
+    }
+
+    public void setParentLocationId(Integer parentLocationId) {
+        this.parentLocationId = parentLocationId;
+    }
+
+    public String getLocationLevel() {
+        return locationLevel;
+    }
+
+    public void setLocationLevel(String locationLevel) {
+        this.locationLevel = locationLevel;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }
 //地点名称，说明，地点地址，建筑物，房间号，楼层，地点编码，经理，维护，父级地点

@@ -27,4 +27,116 @@ public class Norms {
     private String cabinetType; // 机柜类型
     private String power; //功率
     private Date createTime; //创建时间
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNorms() {
+        return norms;
+    }
+
+    public void setNorms(String norms) {
+        this.norms = norms;
+    }
+
+    public String getMaintenancePeriod() {
+        return maintenancePeriod;
+    }
+
+    public void setMaintenancePeriod(String maintenancePeriod) {
+        this.maintenancePeriod = maintenancePeriod;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getCpu() {
+        return cpu;
+    }
+
+    public void setCpu(String cpu) {
+        this.cpu = cpu;
+    }
+
+    public String getMemory() {
+        return memory;
+    }
+
+    public void setMemory(String memory) {
+        this.memory = memory;
+    }
+
+    public String getHardDisk() {
+        return hardDisk;
+    }
+
+    public void setHardDisk(String hardDisk) {
+        this.hardDisk = hardDisk;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getRom() {
+        return rom;
+    }
+
+    public void setRom(String rom) {
+        this.rom = rom;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getSpacing() {
+        return spacing;
+    }
+
+    public void setSpacing(String spacing) {
+        this.spacing = spacing;
+    }
+
+    public String getCabinetType() {
+        return cabinetType;
+    }
+
+    public void setCabinetType(String cabinetType) {
+        this.cabinetType = cabinetType;
+    }
+
+    public String getPower() {
+        return power;
+    }
+
+    public void setPower(String power) {
+        this.power = power;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }
