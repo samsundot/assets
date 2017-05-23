@@ -34,7 +34,7 @@ public class Unit {
 
 
 
-    public Unit(String unitName,Date createTime){
+    public Unit(String unitName){
         this.unitName=unitName;
     }
     public Unit(){}
