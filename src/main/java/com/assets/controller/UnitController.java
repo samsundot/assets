@@ -35,9 +35,7 @@ public class UnitController extends BaseController{
         try {
             JSONObject parse = JsonUtil.parse(requestBody);
             String unitName = (String)JsonUtil.getObject(parse, "unitName");
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-            Date date = new Date();
-            Unit unit = new Unit(unitName,date);
+            Unit unit = new Unit(unitName);
             unitService.addUnit(unit);
             return success("添加成功");
         }catch (Exception e){
@@ -67,7 +65,6 @@ public class UnitController extends BaseController{
             Unit unit = new Unit();
             unit.setId(Integer.valueOf(id));
             unit.setUnitName(unitName);
-            unit.setCreateTime(Const.TIMESTAMP);
             boolean b = unitService.updateUnit(unit);
             if(b){
                 return success("修改成功");

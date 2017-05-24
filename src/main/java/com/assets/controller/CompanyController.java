@@ -41,7 +41,6 @@ public class CompanyController extends BaseController{
             company.setDescription(description);
             company.setCompanyPresident(companyPresident);
             company.setNode(node);
-            Date date = new Date();
             companyService.addCompany(company);
             return success("添加成功");
         }catch (Exception e){
