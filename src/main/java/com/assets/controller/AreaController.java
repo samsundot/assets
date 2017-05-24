@@ -22,7 +22,7 @@ public class AreaController extends BaseController {
     private static final Logger logger = LoggerFactory.getLogger(AreaController.class);
     @Autowired
     AreaService areaService;
-
+ 
     @PostMapping("/area")
     public Result addArea(@RequestBody String requestBody) {
         try {
@@ -58,7 +58,6 @@ public class AreaController extends BaseController {
 
 
     }
-
     }
 
     @PutMapping("/area/{areaId}")

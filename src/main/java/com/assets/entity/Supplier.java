@@ -1,7 +1,6 @@
 package com.assets.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by Administrator on 2017/5/17 0017.
@@ -50,6 +49,14 @@ public class Supplier {
         this.description = description;
     }
 
+    public Supplier(String supplierName, String supplierType, String description) {
+        this.supplierName = supplierName;
+        this.supplierType = supplierType;
+        this.description = description;
+    }
+
+    public Supplier() {
+    }
 }
 //供应商名称，供应商类型，供应商ID,外部供应商ID，生命周期状态，公司地址，专门技术年限，创建公司年份，提供
 
