@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by Administrator on 2017/5/19.
  */
-/*打印颜色 */
+/*打印颜色*/
 @Entity
 @Table(name = "printcolor")
 public class PrintColor implements Serializable{

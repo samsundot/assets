@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by Administrator on 2017/5/19.
  */
-/*打印尺寸 */
+/*打印尺寸*/
 @Entity
 @Table(name = "printsize")
 public class PrintSize implements Serializable {
