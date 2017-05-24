@@ -15,5 +15,33 @@ public class CopySize {
     private Integer id;
     private Integer serialNumber;//序号
     private String name;//尺寸名称
-    private Date createTime; //创建时间
+    public CopySize(){}
+    public CopySize( String name) {
+
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(Integer serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

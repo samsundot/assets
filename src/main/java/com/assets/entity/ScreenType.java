@@ -14,6 +14,10 @@ public class ScreenType {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String showType;//屏幕类型
+    public ScreenType(){}
+    public ScreenType(String showType) {
+        this.showType = showType;
+    }
 
     public Integer getId() {
         return id;
