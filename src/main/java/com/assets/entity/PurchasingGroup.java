@@ -15,7 +15,9 @@ public class PurchasingGroup {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String buyer;  //采购员
-    private String company; //公司
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.REFRESH }, optional = true)//Cascade 级联操作
+    @JoinColumn(name = "companyId")
+    private Company company; //公司
     private String subclass; //小类
 
     public Integer getId() {
@@ -34,11 +36,11 @@ public class PurchasingGroup {
         this.buyer = buyer;
     }
 
-    public String getCompany() {
+    public Company getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(Company company) {
         this.company = company;
     }
 
