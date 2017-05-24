@@ -14,6 +14,10 @@ public class PrintColor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;//颜色名称
+    public PrintColor(){}
+    public PrintColor(String name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;

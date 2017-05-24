@@ -14,6 +14,10 @@ public class PrintSize {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;//尺寸名称
+    public PrintSize(){}
+    public PrintSize(String name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;
