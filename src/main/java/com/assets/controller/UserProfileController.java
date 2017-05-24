@@ -138,7 +138,9 @@ public class UserProfileController extends BaseController{
     @GetMapping("/userProfileById/{id}")
     public Result userProfileById(@PathVariable("id")String id) {
         try {
+            UserProfile one = userProfileService.findOne(Integer.valueOf(id));
             return success(userProfileService.findOne(Integer.valueOf(id)));
+
         } catch (Exception e) {
             logger.error("未知错误", e);
             return error("服务器内部异常");
