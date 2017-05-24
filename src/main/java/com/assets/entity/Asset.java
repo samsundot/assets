@@ -1,5 +1,7 @@
 package com.assets.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -11,6 +13,7 @@ import java.util.Date;
 /*资产信息*/
 @Entity
 @Table(name = "asset")
+@JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","norms","assetType","costCenter","location","procurement","financial"})
 public class Asset implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
