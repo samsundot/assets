@@ -1,6 +1,7 @@
 package com.assets.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Date;
 /*复印尺寸*/
 @Entity
 @Table(name = "copysize")
-public class CopySize {
+public class CopySize implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

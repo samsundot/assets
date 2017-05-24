@@ -1,6 +1,7 @@
 package com.assets.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Date;
 /*屏幕类型*/
 @Entity
 @Table(name = "screenType")
-public class ScreenType {
+public class ScreenType implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

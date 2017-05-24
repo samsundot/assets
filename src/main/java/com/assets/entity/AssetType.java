@@ -1,6 +1,7 @@
 package com.assets.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Date;
 /*资产分类*/
 @Entity
 @Table(name = "assettype")
-public class AssetType {
+public class AssetType implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

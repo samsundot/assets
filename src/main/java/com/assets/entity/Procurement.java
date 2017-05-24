@@ -1,6 +1,7 @@
 package com.assets.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Date;
 /*采购信息*/
 @Entity
 @Table(name = "procurement")
-public class Procurement {
+public class Procurement implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

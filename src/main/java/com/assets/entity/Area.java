@@ -1,6 +1,7 @@
 package com.assets.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by hch on 2017/5/22.
@@ -8,7 +9,7 @@ import javax.persistence.*;
 //区域
 @Entity
 @Table(name = "area")
-public class Area {
+public class Area implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
