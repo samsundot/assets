@@ -1,5 +1,7 @@
 package com.assets.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -7,9 +9,12 @@ import java.util.Date;
 /**
  * Created by hch on 2017/5/22.
  */
-//用户配置文件
+//
 @Entity
 @Table(name = "userprofile")
+//返回JSON数据有时会出现为序列化的错误，因为需要序列化对象有一个属性是一类类型，而你使用了Hibernate的延迟加载所以这里是个Hibernate的代理对象。该代理对象有些属性不能被序列化所以会报错。
+//解决办法：在类型上加如下注解把不需要序列化的属性屏蔽掉
+@JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","jobLevel","department","costCenter"})
 public class UserProfile implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
