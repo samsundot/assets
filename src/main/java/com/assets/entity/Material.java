@@ -31,4 +31,9 @@ public class Material implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
+    public Material(){}
+    public Material(String name) {
+        this.name = name;
+    }
+
 }

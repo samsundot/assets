@@ -15,4 +15,33 @@ public class HouseStructure implements Serializable{
     private Integer id;
     private Integer serialNumber;//序号
     private String name;//结构名称
+    public HouseStructure(){}
+    public HouseStructure( String name) {
+
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(Integer serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
