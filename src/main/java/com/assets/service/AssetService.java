@@ -9,6 +9,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
+
 /**
  * Created by hch on 2017/5/22.
  */
@@ -16,7 +19,8 @@ import org.springframework.stereotype.Service;
 public class AssetService {
     @Autowired
     AssetDao assetDao;
-
+    @PersistenceUnit
+    private EntityManagerFactory emf;
     public Asset addAsset(Asset asset){
         return assetDao.save(asset);
     }
@@ -34,5 +38,11 @@ public class AssetService {
     public Asset findOne(Integer id){
         return assetDao.findOne(id);
     }
+
+    public void test(){
+        System.out.println("emf"+emf.hashCode());
+        System.out.println("em"+emf.createEntityManager().hashCode());
+    }
+
 }
 

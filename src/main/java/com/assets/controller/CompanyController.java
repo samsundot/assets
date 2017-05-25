@@ -113,6 +113,10 @@ public class CompanyController extends BaseController{
         }
 
     }
+    @GetMapping("/test2")
+    public void test2(){
+        companyService.test2();
+    }
 }
 
 
