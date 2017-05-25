@@ -7,6 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
+
 /**
  * Created by Administrator on 2017/5/23 0023.
  */
@@ -14,6 +17,8 @@ import org.springframework.stereotype.Service;
 public class CompanyService {
     @Autowired
     CompanyDao companyDao;
+    @PersistenceUnit
+    private EntityManagerFactory emf;
     //新增
     public Company addCompany(Company company){
         return companyDao.save(company);
@@ -33,5 +38,8 @@ public class CompanyService {
     //查询单个
     public Company findOne(Integer id){
         return companyDao.findOne(id);
+    }
+    public void test2(){
+        System.out.println("comp  emf"+ emf.hashCode());
     }
 }

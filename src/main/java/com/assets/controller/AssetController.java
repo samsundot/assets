@@ -155,5 +155,10 @@ public class AssetController extends BaseController{
 
     }
 
+    @GetMapping("test")
+    public void test(){
+        assetService.test();
+    }
+
 
 }
