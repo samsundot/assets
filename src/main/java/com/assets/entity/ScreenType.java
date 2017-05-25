@@ -9,7 +9,6 @@ import java.util.Date;
  */
 /*屏幕类型*/
 @Entity
-@Table(name = "screenType")
 public class ScreenType implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

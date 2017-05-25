@@ -11,7 +11,6 @@ import java.util.Date;
  */
 /*采购信息*/
 @Entity
-@Table(name = "procurement")
 @JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","supplier"})
 public class Procurement implements Serializable{
     @Id

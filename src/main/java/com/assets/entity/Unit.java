@@ -10,7 +10,6 @@ import java.util.Date;
 
     /*单位表*/
 @Entity
-@Table(name = "unit")
 public class Unit implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

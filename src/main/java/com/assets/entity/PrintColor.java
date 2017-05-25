@@ -9,7 +9,6 @@ import java.util.Date;
  */
 /*打印颜色1*/
 @Entity
-@Table(name = "printcolor")
 public class PrintColor implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

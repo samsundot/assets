@@ -9,7 +9,6 @@ import java.util.Date;
  */
 /*资产存放位置*/
 @Entity
-@Table(name = "location")
 public class Location implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

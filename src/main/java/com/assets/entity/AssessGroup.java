@@ -9,19 +9,15 @@ import java.util.Date;
  */
 /*验收组*/
 @Entity
-@Table(name = "assessgroup")
 public class AssessGroup implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column
     private String code;
-    @Column
     private String buyer;  //验收员
     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.REFRESH }, optional = true)//Cascade 级联操作
     @JoinColumn(name = "companyId")
     private Company company; //公司
-    @Column
     private String subclass; //小类
 
 

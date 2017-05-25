@@ -10,7 +10,6 @@ import java.util.Date;
 
 /*采购组*/
 @Entity
-@Table(name = "purchasinggroup")
 public class PurchasingGroup implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -9,7 +9,6 @@ import java.util.Date;
  */
 /*资产分类*/
 @Entity
-@Table(name = "assettype")
 public class AssetType implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

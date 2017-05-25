@@ -8,7 +8,6 @@ import java.io.Serializable;
  */
 //区域
 @Entity
-@Table(name = "area")
 public class Area implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

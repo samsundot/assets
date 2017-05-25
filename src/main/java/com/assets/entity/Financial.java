@@ -9,7 +9,6 @@ import java.util.Date;
  */
 /*财务信息*/
 @Entity
-@Table(name = "financial")
 public class Financial implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

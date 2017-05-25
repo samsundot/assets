@@ -10,7 +10,6 @@ import java.util.Date;
 
     /*规格型号*/
 @Entity
-@Table(name = "norms")
 public class Norms implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

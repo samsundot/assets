@@ -9,7 +9,6 @@ import java.util.Date;
  */
 /*动力类型*/
 @Entity
-@Table(name = "powertype")
 public class PowerType implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

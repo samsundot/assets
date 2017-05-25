@@ -9,7 +9,6 @@ import java.util.Date;
  */
 /*复印尺寸*/
 @Entity
-@Table(name = "copysize")
 public class CopySize implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

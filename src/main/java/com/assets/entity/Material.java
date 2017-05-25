@@ -9,7 +9,6 @@ import java.util.Date;
  */
 /*材质*/
 @Entity
-@Table(name = "material")
 public class Material implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

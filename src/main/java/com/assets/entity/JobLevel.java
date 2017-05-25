@@ -9,7 +9,6 @@ import java.util.Date;
  */
 //职务级别
 @Entity
-@Table(name = "joblevel")
 public class JobLevel implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

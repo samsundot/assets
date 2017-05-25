@@ -9,7 +9,6 @@ import java.util.Date;
  */
 /*打印尺寸1*/
 @Entity
-@Table(name = "printsize")
 public class PrintSize implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

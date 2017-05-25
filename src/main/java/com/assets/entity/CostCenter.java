@@ -8,7 +8,6 @@ import java.util.Date;
  * Created by Administrator on 2017/5/17 0017.
  */
 @Entity
-@Table(name = "costcenter")
 /*成本中心*/
 public class CostCenter implements Serializable{
     @Id

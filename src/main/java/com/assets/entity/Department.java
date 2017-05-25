@@ -9,7 +9,6 @@ import java.util.Date;
  */
 //部门
 @Entity
-@Table(name = "department")
 public class Department implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

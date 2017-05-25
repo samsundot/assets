@@ -9,7 +9,6 @@ import java.io.Serializable;
 
 /*供应商品牌*/
 @Entity
-@Table(name = "supplier")
 public class Supplier implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

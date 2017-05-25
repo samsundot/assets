@@ -9,7 +9,6 @@ import java.util.Date;
  */
 /*房屋结构*/
 @Entity
-@Table(name = "housestructure")
 public class HouseStructure implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
