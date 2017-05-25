@@ -55,6 +55,7 @@ public class WebLogAspect {
     @AfterReturning(returning = "result", pointcut = "webLog()")
     public void doAfterReturning(Result result) throws Throwable {
         map.get().put("response", result);
+        map.get().put("logTime", new Date());
         logger.info("======="+JsonUtil.toJson(map.get()));
     }
 
