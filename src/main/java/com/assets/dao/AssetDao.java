@@ -13,4 +13,7 @@ import org.springframework.stereotype.Repository;
 public interface AssetDao extends JpaRepository<Asset,Integer>{
     @Modifying @Query(value = "UPDATE asset SET asset_type_id =?1 WHERE asset_type_id =?2 ",nativeQuery = true)
     int updateassetTypeId(Integer setId,Integer assetTypeId);
+
+    @Modifying @Query(value = "UPDATE asset SET location_id =?1 WHERE location_id =?2 ",nativeQuery = true)
+    int updateLocationId(Integer setId,Integer LocationId);
 }
