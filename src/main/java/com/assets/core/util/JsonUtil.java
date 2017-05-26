@@ -38,7 +38,7 @@ public class JsonUtil {
     }
 
     public static Object toJsonObj(Object object) {
-        String s = JSON.toJSONString(object, SerializerFeature.DisableCircularReferenceDetect);
+        String s = JSON.toJSONString(object);
         return JSONObject.parse(s);
     }
 

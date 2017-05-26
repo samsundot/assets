@@ -1,5 +1,7 @@
 package com.assets.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -21,13 +23,14 @@ public class Location implements Serializable{
     /**
      * 上级分类
      */
+    @JSONField(serialize = false)
     @ManyToOne(optional = true)
-    private Location  locationParent;
+    private Location location;
     /**
      * 下级分类
      */
     @OneToMany(cascade={CascadeType.REFRESH,CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}
-            ,fetch = FetchType.LAZY,mappedBy = "locationParent")
+            ,fetch = FetchType.LAZY,mappedBy = "location")
 
     private Set<Location> locations=new HashSet();
 
@@ -65,12 +68,12 @@ public class Location implements Serializable{
         this.locationLevel = locationLevel;
     }
 
-    public Location getLocationParent() {
-        return locationParent;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setLocationParent(Location locationParent) {
-        this.locationParent = locationParent;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public Set<Location> getLocations() {

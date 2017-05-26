@@ -29,18 +29,13 @@ public class LocationService {
         return locationDao.findAll();
     }
 //    查一级菜单
-    public List<Location> findByLocationLevel(String assetTypeLevel) {
-        return locationDao.findByLocationLevel(assetTypeLevel);
+    public List<Location> findByLocationLevel(String locationLevel) {
+        return locationDao.findByLocationLevel(locationLevel);
     }
 
     public boolean updateLocation(Location location){
         return locationDao.saveAndFlush(location)!=null;
     }
-    //  查下一级菜单
-    public List<Location> findByParentId(Integer pid){
-        return locationDao.findByLocationParent(pid);
-    }
-
 
 }
 

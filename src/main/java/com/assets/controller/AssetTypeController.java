@@ -48,7 +48,7 @@ public class AssetTypeController extends BaseController{
             if(!StringUtils.isEmpty(pid.trim())){
                 AssetType parent = new AssetType();
                 parent.setId(Integer.valueOf(pid));
-                assetType.setAssetTypeParent(parent);
+                assetType.setAssetType(parent);
             }
             assetTypeService.addAssetType(assetType);
             return success("添加成功");
@@ -112,22 +112,7 @@ public class AssetTypeController extends BaseController{
             all.forEach(c->{
                 results.add(JsonUtil.toJsonObj(c));
             });
-            return success(results);
-        }catch (Exception e){
-            logger.error("未知错误",e);
-            return error("服务器内部异常");
-        }
-
-    }
-//    查下子级菜单
-    @GetMapping("/assetType/{pid}")
-    public Result asset(@PathVariable("pid")String pid){
-        try {
-            JSONArray results = new JSONArray();
-            List<AssetType> byParentId = assetTypeService.findByParentId(Integer.valueOf(pid));
-            byParentId.forEach(c->{
-                results.add(JsonUtil.toJsonObj(c));
-            });
+            System.out.println(results);
             return success(results);
         }catch (Exception e){
             logger.error("未知错误",e);

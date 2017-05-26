@@ -1,6 +1,8 @@
 package com.assets.entity;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -22,13 +24,14 @@ public class AssetType implements Serializable{
     /**
      * 上级分类
      */
-    @ManyToOne(optional = true)
-    private AssetType assetTypeParent;
+    @JSONField(serialize = false)
+    @ManyToOne(optional = true,fetch = FetchType.LAZY)
+    private AssetType assetType;
     /**
      * 下级分类
      */
     @OneToMany(cascade={CascadeType.REFRESH,CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}
-            ,fetch = FetchType.LAZY,mappedBy = "assetTypeParent")
+            ,fetch = FetchType.LAZY,mappedBy = "assetType")
     private Set<AssetType> assetTypes=new HashSet();
 
 
@@ -65,12 +68,12 @@ public class AssetType implements Serializable{
         this.description = description;
     }
 
-    public AssetType getAssetTypeParent() {
-        return assetTypeParent;
+    public AssetType getAssetType() {
+        return assetType;
     }
 
-    public void setAssetTypeParent(AssetType assetTypeParent) {
-        this.assetTypeParent = assetTypeParent;
+    public void setAssetType(AssetType assetType) {
+        this.assetType = assetType;
     }
 
     public Set<AssetType> getAssetTypes() {

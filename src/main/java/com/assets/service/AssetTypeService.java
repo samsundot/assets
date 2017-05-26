@@ -40,10 +40,6 @@ public class AssetTypeService {
     public boolean updateAssetType(AssetType assetType){
         return assetTypeDao.saveAndFlush(assetType)!=null;
     }
-    //  查下一级菜单
-    public List<AssetType> findByParentId(Integer pid){
-        return assetTypeDao.findByAssetTypeParentId(pid);
-    }
 
 
 }

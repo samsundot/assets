@@ -45,7 +45,7 @@ public class LocationController extends BaseController{
             if(!StringUtils.isEmpty(pid.trim())){
                 Location parent = new Location();
                 parent.setId(Integer.valueOf(pid));
-                location.setLocationParent(parent);
+                location.setLocation(parent);
 
             }
             locationService.addLocation(location);
@@ -101,29 +101,13 @@ public class LocationController extends BaseController{
 //        }
 //    }
 //
-    @GetMapping("/localtion")
-    public Result localtionList(){
+    @GetMapping("/location")
+    public Result locationList(){
         try {
             JSONArray results = new JSONArray();
             //查询一级菜单
             List<Location> byLocationLevel = locationService.findByLocationLevel("1");
             byLocationLevel.forEach(c->{
-                results.add(JsonUtil.toJsonObj(c));
-            });
-            return success(results);
-        }catch (Exception e){
-            logger.error("未知错误",e);
-            return error("服务器内部异常");
-        }
-
-    }
-//    查下子级菜单
-    @GetMapping("/localtion/{pid}")
-    public Result localtion(@PathVariable("pid")String pid){
-        try {
-            JSONArray results = new JSONArray();
-            List<Location> byParentId = locationService.findByParentId(Integer.valueOf(pid));
-            byParentId.forEach(c->{
                 results.add(JsonUtil.toJsonObj(c));
             });
             return success(results);
