@@ -80,5 +80,6 @@ public class Location implements Serializable{
     public void setLocations(Set<Location> locations) {
         this.locations = locations;
     }
+
 }
 //地点名称，说明，地点地址，建筑物，房间号，楼层，地点编码，经理，维护，父级地点

@@ -46,8 +46,8 @@ public class AssetService {
         return assetDao.updateassetTypeId(setId,assetTypeId)>0;
     }
     //修改资产位置
-    public boolean updateLocationId(Integer setId,Integer assetLocationId){
-        return assetDao.updateLocationId(setId,assetLocationId)>0;
+    public boolean updateLocationId(Integer setId,Integer locationId){
+        return assetDao.updateLocationId(setId,locationId)>0;
     }
 
 

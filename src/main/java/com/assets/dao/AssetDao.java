@@ -15,5 +15,5 @@ public interface AssetDao extends JpaRepository<Asset,Integer>{
     int updateassetTypeId(Integer setId,Integer assetTypeId);
 
     @Modifying @Query(value = "UPDATE asset SET location_id =?1 WHERE location_id =?2 ",nativeQuery = true)
-    int updateLocationId(Integer setId,Integer LocationId);
+    int updateLocationId(Integer setId,Integer locationId);
 }
