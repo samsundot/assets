@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -16,6 +17,7 @@ import javax.persistence.PersistenceUnit;
  * Created by hch on 2017/5/22.
  */
 @Service
+@Transactional
 public class AssetService {
     @Autowired
     AssetDao assetDao;
@@ -38,6 +40,12 @@ public class AssetService {
     public Asset findOne(Integer id){
         return assetDao.findOne(id);
     }
+
+    //修改资产类型
+    public boolean updateassetTypeId(Integer setId,Integer assetTypeId){
+        return assetDao.updateassetTypeId(setId,assetTypeId)>0;
+    }
+
 
     public void test(){
         System.out.println("emf"+emf.hashCode());

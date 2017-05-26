@@ -1,8 +1,10 @@
 package com.assets.entity;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Administrator on 2017/5/17 0017.
@@ -14,10 +16,21 @@ public class AssetType implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String assetTypeName;//资产类别名称
-    private Integer parentTypeId; //上级类别名称
     private String assetTypeLevel; //资产类别级别
     private String description; //说明
-    private Date createTime; //创建时间
+
+    /**
+     * 上级分类
+     */
+    @ManyToOne(optional = true)
+    private AssetType assetTypeParent;
+    /**
+     * 下级分类
+     */
+    @OneToMany(cascade={CascadeType.REFRESH,CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}
+            ,fetch = FetchType.LAZY,mappedBy = "assetTypeParent")
+    private Set<AssetType> assetTypes=new HashSet();
+
 
 
     public Integer getId() {
@@ -36,14 +49,6 @@ public class AssetType implements Serializable{
         this.assetTypeName = assetTypeName;
     }
 
-    public Integer getParentTypeId() {
-        return parentTypeId;
-    }
-
-    public void setParentTypeId(Integer parentTypeId) {
-        this.parentTypeId = parentTypeId;
-    }
-
     public String getAssetTypeLevel() {
         return assetTypeLevel;
     }
@@ -60,11 +65,19 @@ public class AssetType implements Serializable{
         this.description = description;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public AssetType getAssetTypeParent() {
+        return assetTypeParent;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setAssetTypeParent(AssetType assetTypeParent) {
+        this.assetTypeParent = assetTypeParent;
+    }
+
+    public Set<AssetType> getAssetTypes() {
+        return assetTypes;
+    }
+
+    public void setAssetTypes(Set<AssetType> assetTypes) {
+        this.assetTypes = assetTypes;
     }
 }

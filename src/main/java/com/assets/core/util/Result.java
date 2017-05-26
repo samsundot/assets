@@ -79,10 +79,10 @@ public class Result {
     public boolean isSuccess() {
         return getCode() == 0;
     }
-
-    @Override
-    public String toString() {
-        return JsonUtil.toJson(this);
-    }
+//
+//    @Override
+//    public String toString() {
+//        return JsonUtil.toJson(this);
+//    }
 }
 

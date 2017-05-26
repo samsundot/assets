@@ -2,7 +2,8 @@ package com.assets.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Administrator on 2017/5/17 0017.
@@ -15,8 +16,21 @@ public class Location implements Serializable{
     private Integer Id;
     private String locationName; //地点名称
     private String detailedAddress; //详细地址
-    private Integer parentLocationId; //上级地址标识
     private String locationLevel; //地址级别
+
+    /**
+     * 上级分类
+     */
+    @ManyToOne(optional = true)
+    private Location  locationParent;
+    /**
+     * 下级分类
+     */
+    @OneToMany(cascade={CascadeType.REFRESH,CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}
+            ,fetch = FetchType.LAZY,mappedBy = "locationParent")
+
+    private Set<Location> locations=new HashSet();
+
 
     public Integer getId() {
         return Id;
@@ -42,13 +56,6 @@ public class Location implements Serializable{
         this.detailedAddress = detailedAddress;
     }
 
-    public Integer getParentLocationId() {
-        return parentLocationId;
-    }
-
-    public void setParentLocationId(Integer parentLocationId) {
-        this.parentLocationId = parentLocationId;
-    }
 
     public String getLocationLevel() {
         return locationLevel;
@@ -58,5 +65,20 @@ public class Location implements Serializable{
         this.locationLevel = locationLevel;
     }
 
+    public Location getLocationParent() {
+        return locationParent;
+    }
+
+    public void setLocationParent(Location locationParent) {
+        this.locationParent = locationParent;
+    }
+
+    public Set<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Set<Location> locations) {
+        this.locations = locations;
+    }
 }
 //地点名称，说明，地点地址，建筑物，房间号，楼层，地点编码，经理，维护，父级地点
