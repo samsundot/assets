@@ -13,5 +13,4 @@ import java.util.List;
 @Repository
 public interface AssetTypeDao extends JpaRepository<AssetType,Integer>{
     List<AssetType> findByAssetTypeLevel(String assetTypeLevel);
-    List<AssetType> findByAssetTypeId(Integer pid);
 }
